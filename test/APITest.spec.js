@@ -30,6 +30,12 @@ describe('Dummy Test', () => {
 });
 
 describe('Parcel Routes', () => {
+  before((done) => {
+    Parcel.sync().then(() => {
+      done();
+    });
+  });
+
   beforeEach((done) => {
     Parcel.destroy({
       truncate: true,
