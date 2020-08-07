@@ -64,7 +64,7 @@ describe('Parcel Routes', () => {
       presentLocation: 'London',
       status: 'over the sea',
     };
-    it('Should NOT create a new parcel without the detination field', (done) => {
+    it('Should NOT create a new parcel without the destination field', (done) => {
       chai
         .request(server)
         .post('/api/v1/parcels')

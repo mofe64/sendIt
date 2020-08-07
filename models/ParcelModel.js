@@ -11,6 +11,7 @@ const Parcel = db.define('parcel', {
   },
   destination: {
     type: Sequelize.STRING,
+    allowNull: false,
   },
   presentLocation: {
     type: Sequelize.STRING,
