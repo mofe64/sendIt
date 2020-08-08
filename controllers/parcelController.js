@@ -79,3 +79,69 @@ exports.cancelParcel = catchAsync(async (req, res, next) => {
     parcel,
   });
 });
+
+exports.changeParcelDestination = catchAsync(async (req, res, next) => {
+  const destination = req.body.destination;
+  if (!destination) {
+    return next(new AppError('Please provide a valid destination', 400));
+  }
+  const parcelOwnerId = req.user.id;
+  const parcelid = req.params.parcelId;
+  const parcelToCheck = await Parcel.findByPk(parcelid);
+  if (!parcelToCheck) {
+    return next(new AppError('No Parcel found with that ID', 404));
+  }
+  if (parcelToCheck.userId !== parcelOwnerId) {
+    return next(
+      new AppError(
+        'Parcel destinations can only be changed by thier makers, Please log in as the parcel owner to change this parcels destination ',
+        401
+      )
+    );
+  }
+  const result = await Parcel.update(
+    { destination: destination },
+    { where: { id: parcelid }, returning: true, plain: true }
+  );
+  const parcel = result[1].dataValues;
+  res.status(200).json({
+    status: 'success',
+    parcel,
+  });
+});
+
+exports.changeParcelStatus = catchAsync(async (req, res, next) => {
+  const newStatus = req.body.status;
+  if (!newStatus) {
+    return next(new AppError('Please provide a valid parcel status', 400));
+  }
+  const parcelId = req.params.parcelId;
+  const parcel = await Parcel.findByPk(parcelId);
+  if (!parcel) {
+    return next(new AppError('No Parcel found with that ID', 404));
+  }
+  parcel.status = newStatus;
+  const updatedParcel = await parcel.save();
+  res.status(200).json({
+    status: 'success',
+    updatedParcel,
+  });
+});
+
+exports.changeParcelPresentLocation = catchAsync(async (req, res, next) => {
+  const newLocation = req.body.newLocation;
+  if (!newLocation) {
+    return next(new AppError('Please provide a valid parcel Location', 400));
+  }
+  const parcelId = req.params.parcelId;
+  const parcel = await Parcel.findByPk(parcelId);
+  if (!parcel) {
+    return next(new AppError('No Parcel found with that ID', 404));
+  }
+  parcel.presentLocation = newLocation;
+  const updatedParcel = await parcel.save();
+  res.status(200).json({
+    status: 'success',
+    updatedParcel,
+  });
+});

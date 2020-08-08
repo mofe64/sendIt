@@ -13,4 +13,23 @@ router.route('/:parcelId').get(parcelController.getParcelById);
 router
   .route('/:parcelId/cancel')
   .put(authContoller.authenticate, parcelController.cancelParcel);
+
+router
+  .route('/:parcelId/destination')
+  .put(authContoller.authenticate, parcelController.changeParcelDestination);
+
+router
+  .route('/:parcelId/status')
+  .put(
+    authContoller.authenticate,
+    authContoller.restrictTo('admin'),
+    parcelController.changeParcelStatus
+  );
+router
+  .route('/:parcelId/presentLocation')
+  .put(
+    authContoller.authenticate,
+    authContoller.restrictTo('admin'),
+    parcelController.changeParcelPresentLocation
+  );
 module.exports = router;
