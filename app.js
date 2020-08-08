@@ -1,7 +1,11 @@
 const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
+const AppError = require('./utils/AppError');
+const globalErrorHandler = require('./controllers/errorController');
 const parcelRouter = require('./routers/parcelRouter');
+const userRouter = require('./routers/userRouter');
+const authRouter = require('./routers/authRoutes');
 
 //database config
 const sequelize = require('./Database');
@@ -10,6 +14,14 @@ sequelize
   .then(() => console.log('Database connected successfully'))
   .catch((err) => console.log('Error :', err));
 
+// sequelize
+//   .sync({ force: true })
+//   .then(() => {
+//     console.log('Database Synced successfullly');
+//   })
+//   .catch((err) => {
+//     console.log('Error', err);
+//   });
 //initialize express
 const app = express();
 
@@ -19,6 +31,8 @@ app.use(bodyParser.urlencoded({ limit: '10mb', extended: false }));
 
 //routes
 app.use('/api/v1/parcels', parcelRouter);
+app.use('/api/v1/auth', authRouter);
+app.use('/api/v1/users', userRouter);
 
 app.get('/dummy', (req, res) => {
   res.status(200).json({
@@ -26,6 +40,12 @@ app.get('/dummy', (req, res) => {
   });
 });
 
+app.all('*', (req, res, next) => {
+  next(new AppError(`Can't find ${req.originalUrl} on this server`, 404));
+});
+
+//plug in global error handler
+app.use(globalErrorHandler);
 //server setup
 const port = process.env.PORT || 3000;
 const server = app.listen(port, () => {
