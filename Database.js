@@ -1,7 +1,10 @@
 const dotenv = require('dotenv');
 dotenv.config({ path: './config.env' });
 const { Sequelize } = require('sequelize');
-if (process.env.NODE_ENV == 'development') {
+if (
+  process.env.NODE_ENV == 'development' ||
+  process.env.NODE_ENV == 'production'
+) {
   module.exports = new Sequelize(
     process.env.DATABASE_NAME,
     process.env.DATABASE_USER,
@@ -19,6 +22,7 @@ if (process.env.NODE_ENV == 'development') {
     {
       host: 'localhost',
       dialect: 'postgres',
+      logging: false,
     }
   );
 }
