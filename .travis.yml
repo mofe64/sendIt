@@ -6,11 +6,3 @@ services:
 before_script:
   - psql -c "CREATE DATABASE travis_ci_test;" -U postgres
 after_success: npm run coverage
-deploy:
-  provider: heroku
-  api_key:
-    secure: Y+C3thoHwnLes4UBnCLfVxC1/wDc59QCITGoDt7z3Es6zlZkuCA67wUjTR4ZvAx6EKLmmCqdDJnmrK4HhM9rthReYDiiqv8bugUmRlL5J0DJjPOdD5EcE/jRdppXmT17M1cuYvsvi1EVVedrQRCIKrug1AGZpUk7v6VuZ/XKt8iB7pqBjBcdyUHqtqCbE/+Q9k8OA81n18c288wnwRRDuFeUaQgNFTlLu7rB8bk19ybC2jUgNe0iaX91B4w403AnuupQdISVTBkX+7afT6xYzHyU+YveWcI6tgO1bbyuMjcmXzEYXUuuhU4d8mEKjtLs9la2Qj3Vb89zKM9tiE/x4mfNOa30dxlaNYRaIi0YHWtGbMAjCztpZT/tTtqKM69i3rC1XzYgWxhFO/RKn6o3Evv8QjKRpuR9Cn/LCVWvMbhEx4ci7xlVky5pI/Lht+lLDaag9r3kPB4s/nudZbkCU3KumYys7f5kmweMT+kkyF3mUctcM/M42MjVufQ2iOhykZq5RcgKxRQCARLvJ9rVXwtkRwwOAy7P2kWW5L0lh1Sz8JbXqTrOZBcEaF0e8gi0Y/65NaGUsCOak/7XCaI8M254fwu33AUAeO9eYhdr8I4IcUcckHxSVz6eLaAjHR9B4UwBSZwmrzKKeQPF10/tDnVLfmDfVIO7BkGAfJV6pFE=
-  app: sendIt
-  on:
-    repo: mofe64/sendIt
-  skip_cleanup: 'true'
