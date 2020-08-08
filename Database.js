@@ -22,6 +22,7 @@ if (
     {
       host: 'localhost',
       dialect: 'postgres',
+      logging: false,
     }
   );
 }

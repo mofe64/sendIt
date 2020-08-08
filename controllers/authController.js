@@ -34,7 +34,7 @@ exports.login = catchAsync(async (req, res, next) => {
   const { username, password } = req.body;
 
   if (!username || !password) {
-    return next(new AppError('Please enter your username or password'));
+    return next(new AppError('Please enter your username or password', 400));
   }
   const user = await User.findOne({ where: { userName: username } });
   if (!user) {

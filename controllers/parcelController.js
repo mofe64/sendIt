@@ -13,6 +13,7 @@ exports.getAllParcels = catchAsync(async (req, res, next) => {
 
 exports.getParcelById = catchAsync(async (req, res, next) => {
   const id = req.params.parcelId;
+  //console.log(id);
   const parcel = await Parcel.findByPk(id);
   //console.log(parcel);
   if (!parcel) {

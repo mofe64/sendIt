@@ -1,5 +1,20 @@
 const AppError = require('../utils/AppError');
 
+const handleSequelizeValidationError = (err) => {
+  const message = err.errors[0].message;
+  return new AppError(message, 400);
+};
+
+const SequelizeUniqueConstraintError = (err) => {
+  const message = err.errors[0].message;
+  return new AppError(message, 400);
+};
+
+const SequelizeDatabaseError = (err) => {
+  const message = err.message;
+  return new AppError(message, 400);
+};
+
 const sendErrorDev = (err, res) => {
   res.status(err.statusCode).json({
     status: err.status,
@@ -32,8 +47,21 @@ module.exports = (err, req, res, next) => {
 
   if (process.env.NODE_ENV === 'development') {
     sendErrorDev(err, res);
-  } else if (process.env.NODE_ENV === 'production') {
-    //let error = { ...err };
-    sendErrorProd(err, res);
+  } else if (
+    process.env.NODE_ENV === 'production' ||
+    process.env.NODE_ENV == 'test'
+  ) {
+    let error = { ...err };
+    error.message = err.message;
+    if (error.name == 'SequelizeValidationError') {
+      error = handleSequelizeValidationError(error);
+    }
+    if (error.name == 'SequelizeUniqueConstraintError') {
+      error = SequelizeUniqueConstraintError(error);
+    }
+    if (error.name == 'SequelizeDatabaseError') {
+      error = SequelizeDatabaseError(error);
+    }
+    sendErrorProd(error, res);
   }
 };
