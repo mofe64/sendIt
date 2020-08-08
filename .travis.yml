@@ -10,7 +10,11 @@ deploy:
   provider: heroku
   api_key:
     secure: RCFXk3dIgp6uO1FPT1PRkg6Xx5DfFmaaRCYBbfDxEn7Mk6GeblruLKztjlwHfa4WnlTWnbUCEY1VlOC0HHeptE83AYq5vtnPooy2EbCxEtfrXlMky6KFasVzsDebmmTyibMbQztHRAB+f1YmQjukfmN/ZxcgGomF0vxFB3rkmEcMOxmSmsvYpNkT6jSjuFhyROO+iOkWGA85g4Hh2SjiLxQuaTso1Y8EEu+aSKCmFK5xJHIx/FBtFriiOwfqoeLbaurJnPXuSvmRbBEnl19ZjbEBXVShtMXwKFXprrCDzIhyaBY0DvuQVr5jsf+YHjYwZf2O/QU7mSKznMOTZcqTOx5ugYKerzOZwo2a7KI6O6lPzvmwPRT2rAWl7xnMOcIcAH7TdZhVNfA/kBAzdvehfs6rNdBC3fg65pdbO0bECE3asXox3fmNxha7oHBnJXtsd9UPpIrRza80hdFTlFBr783kSus6VLite3jsvmTemMPnrdlMS56KfphrmsEyaltzuu+rFwZ00L/bxi8k1q96kzLeLdUjPBiy7xIEf99H3KfWfRm9e62MfLolRP7d2Hiwz16k1twkVsjDnvuyCa+m1krWtd4Y0Qvhp9+BXUSTDnLpgOfJnP+8qQdiNrV+naqjyqZJbAZlq17IY39jd8BWOJ2VFKBE+o9xZdfcrFuE9D0=
-  app: sendIt
+  app: sendit-parcelapi
+  run:
+    - heroku config:set DATABASE_URI='postgres://dcwtudfleuswnu:ae2e9bbfceeb2504837c22675aaa67328b9c3341fbda4e264122aad1443f4412@ec2-35-173-94-156.compute-1.amazonaws.com:5432/d5cknp45u4t5jc'
+    - heroku config:set JWT_SECRET=testing-a-secret-to-the-app-138abacuauana89101-109187q-heths-hell
+    - heroku config:set JWT_EXPIRES_IN=90d
   on:
     repo: mofe64/sendIt
     branch: master
