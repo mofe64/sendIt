@@ -11,7 +11,7 @@ _API LINK_ : <https://sendit-parcelapi.herokuapp.com/>
 
 _Documentation link_ <https://sendit-parcelapi.herokuapp.com/api/v1/docs>
 
-Default Admin Login details username: password:test1234
+Default Admin Login details mofe username: password:test1234
 
 **Authentication Routes :** There are two authentication routes:
 
