@@ -30,6 +30,9 @@ app.use(express.json({ limit: '10kb' }));
 app.use(bodyParser.urlencoded({ limit: '10mb', extended: false }));
 
 //routes
+app.use('/api/v1/docs', (req, res) => {
+  res.sendFile('/readme.html', { root: __dirname });
+});
 app.use('/api/v1/parcels', parcelRouter);
 app.use('/api/v1/auth', authRouter);
 app.use('/api/v1/users', userRouter);
