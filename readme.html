@@ -1,0 +1,88 @@
+﻿<!DOCTYPE html>                            <html>                                <head>                                    <meta charset="UTF-8">                                    <title>readme</title>                                    <link rel="stylesheet" href="./style/style.css">                                    <link rel="stylesheet" href="./style/kimbie.dark.css">                                    <meta name="viewport" content="width=device-width, initial-scale=1.0">                                    <style>*,body{margin:0;padding:0}.markdown-content,*{font-family:Vazir}*{box-sizing:border-box}html{font-size:14px}.markdown-content p,.rtl ol li,.rtl ul li{font-size:1.1rem}body{direction:rtl;color:#24292e}.ltr{direction:ltr!important}.rtl{direction:rtl!important}@media screen and (max-width:600px){body{padding:10px}}@media screen and (min-width:601px){body{padding:50px}}@font-face{font-family:Vazir;src:url(fonts/Vazir.woff)}@font-face{font-family:DejaVuSansMono;src:url(fonts/DejaVuSansMono.ttf)}.markdown-content{width:100%;outline-offset:-22px;padding:15px;line-height:3rem}code,code span,pre code span,ul li pre code{font-family:DejaVuSansMono,Menlo,'Liberation Mono',Consolas,'DejaVu Sans Mono','Ubuntu Mono','Courier New','andale mono','lucida console',monospace!important}.markdown-content p{text-align:justify;padding:.5rem}.markdown-content img{margin:0 auto;display:block;max-width:90%}.rtl ul li{margin-right:3rem!important}.rtl ol li{margin-right:3rem}.ltr ol li,.ltr ul li{font-size:1.1rem;margin-left:3rem}.markdown-content h1,.markdown-content h2,.markdown-content h3{padding:12px;text-shadow:none}.markdown-content h1{padding-top:60px;color:rgba(22,19,19,.8);font-weight:900;font-size:2.1rem}.markdown-content h2{font-weight:500;color:rgba(22,19,19,.6);font-size:1.8rem}.markdown-content h3{font-weight:300;color:rgba(22,19,19,.4);font-size:1.5rem}.markdown-content h4,.markdown-content h5{font-weight:200;color:rgba(22,19,19,.4)}.markdown-content h4{font-size:1.3rem}.markdown-content h5{font-size:1.2rem}@media screen and (min-width:48rem){#list{width:20%}#content{width:100%}}@media screen and (min-width:80rem){#list.none{display:inline-block}#content{width:80%}}@media print{#list{display:none}#content{display:block;width:100%;margin:0 auto}#content li,#content p{font-size:1rem}}.manual-anchor{top:45px}.markdown-container{max-width:1448px;margin:0 auto}.manual-link-icon{color:#8f8f8f}.manual-link-icon:hover{color:#000}code,ul li pre code{white-space:pre;word-wrap:normal;padding:3px 7px;color:#24292e;background-color:rgba(27,31,35,.05);border-radius:3px;font-size:1rem}.markdown-content ul li pre,.manual ul li pre,pre{margin:0;direction:ltr!important}.markdown-content ul li pre code,.manual ul li pre code,pre code{direction:ltr!important;line-height:1.45;padding:1em 0 .5em 3em;position:relative;display:block;overflow-x:auto;overflow-y:auto}a{text-decoration:none}.title{float:left;color:#ccc}.markdown-container{padding-top:60px}.elements{padding:12px;position:fixed;top:0;right:0;left:0;background-color:#444;height:50px;z-index:1}.input{color:#fff}#savebutton,input{font-size:15px}#savebutton{padding:0 7px!important}#rtl-checkbox-container{margin:3px 15px!important;color:#fff}.button{background-color:#fff;color:#444;font-size:1.6rem;display:inline-block;text-align:center;line-height:2.1rem;border-radius:2px}.button:hover{cursor:pointer;background-color:#eee}#refresh-button{width:2.2rem;vertical-align:middle}@media print{.no-print,.no-print *{display:none!important}}.hljs-comment,.hljs-quote{color:#99ac5b}.hljs-meta,.hljs-name,.hljs-regexp,.hljs-selector-class,.hljs-selector-id,.hljs-tag,.hljs-template-variable,.hljs-variable{color:#dc3958}.hljs-built_in,.hljs-builtin-name,.hljs-deletion,.hljs-link,.hljs-literal,.hljs-number,.hljs-params,.hljs-type{color:#f79a32}.hljs-attribute,.hljs-section,.hljs-title{color:#f06431}.hljs-addition,.hljs-bullet,.hljs-string,.hljs-symbol{color:#9c9}.hljs-function,.hljs-keyword,.hljs-selector-tag{color:#98676a}.hljs{display:block;overflow-x:auto;background:#221a0f;color:#d3af86}.hljs-emphasis{font-style:italic}.hljs-strong{font-weight:700}</style>                                </head>                                <body><div class="markdown-container ltr"><div class="markdown-content"><h1 id="sendit-api">sendIT API</h1>
+<p><a href="https://coveralls.io/github/mofe64/sendIt?branch=master"><img src="https://coveralls.io/repos/github/mofe64/sendIt/badge.svg?branch=master" alt="Coverage Status"></a>
+<a href="https://travis-ci.com/mofe64/sendIt"><img src="https://travis-ci.com/mofe64/sendIt.svg?branch=master" alt="Build Status"></a></p>
+<p><strong>SendIt API Documentation.</strong></p>
+<p><em>All Routes with the exception of the signup and login routes are protected and can only be accessed when logged in.</em></p>
+<p><em>API LINK</em> : <a href="https://sendit-parcelapi.herokuapp.com/">https://sendit-parcelapi.herokuapp.com/</a></p>
+<p><em>Documentation link</em> <a href="https://sendit-parcelapi.herokuapp.com/api/v1/docs">https://sendit-parcelapi.herokuapp.com/api/v1/docs</a></p>
+<p>Default Admin Login details username: password:test1234</p>
+<p><strong>Authentication Routes :</strong> There are two authentication routes:</p>
+<p><a href="https://sendit-parcelapi.herokuapp.com/api/v1/auth/register">https://sendit-parcelapi.herokuapp.com/api/v1/auth/register</a> which is to sign up.</p>
+<p><a href="https://sendit-parcelapi.herokuapp.com/api/v1/auth/login">https://sendit-parcelapi.herokuapp.com/api/v1/auth/login</a> which is to login.</p>
+<h2 id="registration">Registration</h2>
+<p>Registration is done via a post request to:
+<a href="https://sendit-parcelapi.herokuapp.com/api/v1/auth/register">https://sendit-parcelapi.herokuapp.com/api/v1/auth/register</a></p>
+<p>when signing-up the following fields must be provided in req.body:</p>
+<pre><code class=" hljs ">firstname : <span class="hljs-built_in">test</span>
+
+lastname : testlastname
+
+username: testusername
+
+email : <span class="hljs-built_in">test</span>@example.io
+
+password : test1234
+
+passwordconfirm : test1234
+</code></pre><p>upon signing up a jwt token is issued and sent along in the response. This token must be prefixed with Bearer and sent alongside every request in an Authorization header to access restricted routes eg</p>
+<p><em>if token : 12356789abc</em></p>
+<pre><code class=" hljs "><span class="hljs-string">"Authorization"</span> : <span class="hljs-string">"Bearer 12356789abc"</span>
+</code></pre><p>must be sent alongside every request to a protected route</p>
+<h2 id="log-in">Log In</h2>
+<p>Signing-in All users can log in via a post request to : <a href="https://sendit-parcelapi.herokuapp.com/api/v1/auth/login">https://sendit-parcelapi.herokuapp.com/api/v1/auth/login</a></p>
+<p>when logging in, the following fields must be provided:</p>
+<pre><code class=" hljs "><span class="hljs-attribute">email</span>: test@example.io
+
+<span class="yaml"><span class="hljs-attr">password:</span> <span class="hljs-string">test1234</span></span>
+</code></pre><p>upon a successful login, a jwt token is issued and sent alongside the response.</p>
+<p>This token must be prefixed with Bearer and sent alongside every request in an Authorization header eg</p>
+<p><em>if token : 12356789abc</em></p>
+<pre><code class=" hljs "><span class="hljs-string">"Authorization"</span> : <span class="hljs-string">"Bearer 12356789abc"</span>
+</code></pre><h3 id="note-to-access-any-protected-route-the-above-must-be-sent-alongside-any-request-to-that-protected-route-this-will-validate-that-the-user-is-actually-logged-in">Note to access any protected route, the above must be sent alongside any request to that protected route, this will validate that the user is actually logged in</h3>
+<hr>
+<h2 id="creating-a-parcel-delivery-order">CREATING A PARCEL DELIVERY ORDER</h2>
+<p>You can create a parcel delivery order by making a Post Request to:</p>
+<p><a href="https://sendit-parcelapi.herokuapp.com/api/v1/parcels">https://sendit-parcelapi.herokuapp.com/api/v1/parcels</a></p>
+<p>This will create a new parcel delivery order.</p>
+<p>The post request should contain the destiantion and presentLocation field in req.body:</p>
+<pre><code class=" hljs "><span class="hljs-attr">destination:</span> <span class="hljs-string">testdestination</span>
+<span class="hljs-attr">presentLocation:</span> <span class="hljs-string">testlocation</span>
+</code></pre><h3 id="note-the-destination-field-is-mandatory-and-without-it-the-request-will-fail">note: the destination field is mandatory and without it the request will fail</h3>
+<h3 id="note-this-route-is-a-protected-route-and-a-user-must-be-logged-in-before-accessing-this-route-in-addition-the-currently-logged-in-user-s-id-is-saved-on-the-parcel-created-and-only-that-user-can-perform-further-actions-on-the-parcel">Note: this route is a protected route and a user must be logged in before accessing this route. In addition the currently logged in user's ID is saved on the parcel created and only that user can perform further actions on the parcel</h3>
+<hr>
+<h2 id="getting-all-parcels-delivery-orders">GETTING ALL PARCELS DELIVERY ORDERS</h2>
+<p>You can get all parcel delivery orders which have been made by making a Get Request to: <a href="https://sendit-parcelapi.herokuapp.com/api/v1/parcels">https://sendit-parcelapi.herokuapp.com/api/v1/parcels</a></p>
+<p>This will get all parcels that currently exist in the parcels table.</p>
+<h3 id="note-this-route-is-restricted-to-admins-only">NOTE: This route is restricted to admins only</h3>
+<hr>
+<h2 id="get-an-individual-parcel-delivery-order">GET AN INDIVIDUAL PARCEL DELIVERY ORDER</h2>
+<p>You can get a specific parcel delivery order from the parcels table by making Get Request to:</p>
+<p><a href="https://sendit-parcelapi.herokuapp.com/api/v1/parcels/PARCELID/">https://sendit-parcelapi.herokuapp.com/api/v1/parcels/PARCELID/</a></p>
+<h3 id="this-route-is-a-proteced-route-and-can-only-be-accessed-by-logged-in-users">This route is a proteced route and can only be accessed by logged in users</h3>
+<hr>
+<h2 id="get-all-parcel-delivery-orders-made-by-a-particular-user">GET ALL PARCEL DELIVERY ORDERS MADE BY A PARTICULAR USER</h2>
+<p>You can get aLL parcel delivery orders made by a partucular user by making Get Request to:</p>
+<p><a href="https://sendit-parcelapi.herokuapp.com/api/v1/users/USERID/parcels">https://sendit-parcelapi.herokuapp.com/api/v1/users/USERID/parcels</a></p>
+<h3 id="this-route-is-a-proteced-route-and-can-only-be-accessed-by-logged-in-users">This route is a proteced route and can only be accessed by logged in users</h3>
+<hr>
+<h2 id="cancel-a-parcel-delivery-order">CANCEL A PARCEL DELIVERY ORDER</h2>
+<p>You can cancel a parcel delivery order by making a Put Request to:</p>
+<p><a href="https://sendit-parcelapi.herokuapp.com/api/v1/parcels/PARCELID/cancel">https://sendit-parcelapi.herokuapp.com/api/v1/parcels/PARCELID/cancel</a></p>
+<h3 id="a-parcel-can-only-be-cancelled-by-the-user-who-made-it-therefore-the-user-who-made-the-parcel-delivery-must-be-logged-in-to-access-this-request">A parcel can only be cancelled by the user who made it, therefore the user who made the parcel delivery must be logged in to access this request</h3>
+<hr>
+<h2 id="change-a-parcel-delivery-order-s-destination">CHANGE A PARCEL DELIVERY ORDER'S DESTINATION</h2>
+<p>You can change the destination of a parcel delivery order by making a Put Request to:</p>
+<p><a href="https://sendit-parcelapi.herokuapp.com/api/v1/parcels/PARCELID/destination">https://sendit-parcelapi.herokuapp.com/api/v1/parcels/PARCELID/destination</a></p>
+<h3 id="a-parcel-s-destination-can-only-be-changed-by-the-user-who-made-it-therefore-the-user-who-made-the-parcel-delivery-must-be-logged-in-to-access-this-request">A parcel's destination can only be changed by the user who made it, therefore the user who made the parcel delivery must be logged in to access this request</h3>
+<hr>
+<h2 id="change-a-parcel-delivery-order-s-status">CHANGE A PARCEL DELIVERY ORDER'S STATUS</h2>
+<p>You can change a parcel delivery order's status by making a Put Request to:</p>
+<p><a href="https://sendit-parcelapi.herokuapp.com/api/v1/parcels/PARCELID/status">https://sendit-parcelapi.herokuapp.com/api/v1/parcels/PARCELID/status</a></p>
+<h3 id="a-parcel-s-status-can-only-be-changed-by-the-user-who-made-it-therefore-the-admin-must-be-logged-in-to-access-this-request">A parcel's status can only be changed by the user who made it, therefore the admin must be logged in to access this request</h3>
+<hr>
+<h2 id="change-a-parcel-delivery-order-s-present-location">CHANGE A PARCEL DELIVERY ORDER'S PRESENT LOCATION</h2>
+<p>You can change a parcel delivery order's presentLocation by making a Put Request to:</p>
+<p><a href="https://sendit-parcelapi.herokuapp.com/api/v1/parcels/PARCELID/presentLocation">https://sendit-parcelapi.herokuapp.com/api/v1/parcels/PARCELID/presentLocation</a></p>
+<h3 id="a-parcel-s-present-location-can-only-be-changed-by-the-user-who-made-it-therefore-the-admin-must-be-logged-in-to-access-this-request">A parcel's present location can only be changed by the user who made it, therefore the admin must be logged in to access this request</h3>
+<hr>
+</div></div></body>                            </html>
